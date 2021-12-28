@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
 
-import mainImg from "../../assets/06.png";
+import mainImg from "../../../assets/06.png";
 import CartButton from "./CartButton/CartButton";
 
 const HeaderStyle = styled.header`
