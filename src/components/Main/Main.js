@@ -1,15 +1,13 @@
 import React, { Fragment } from "react";
 
-import GlobalStyle from "../../GlobalStyle";
-import Header from "./Header/Header";
 import ArticleSummary from "./Article/Article.Summarry";
+import Items from "./Items/Items";
 
 const Main = () => {
   return (
     <Fragment>
-      <GlobalStyle />
-      <Header />
       <ArticleSummary />
+      <Items />
     </Fragment>
   );
 };

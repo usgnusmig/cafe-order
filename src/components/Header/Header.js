@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
 
-import mainImg from "../../../assets/06.png";
-import CartButton from "./CartButton/CartButton";
+import mainImg from "../../assets/06.png";
 
 const HeaderStyle = styled.header`
   position: fixed;
@@ -34,13 +33,10 @@ const Image = styled.img`
   transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
 `;
 
-const Header = () => {
+const Header = (props) => {
   return (
     <Fragment>
-      <HeaderStyle>
-        <h1>L'HARMONIE</h1>
-        <CartButton />
-      </HeaderStyle>
+      <HeaderStyle>{<h1>{props.title}</h1> || <h1>CafeName</h1>}</HeaderStyle>
 
       <MainImage>
         <Image src={mainImg} alt="L'harmonie" />
