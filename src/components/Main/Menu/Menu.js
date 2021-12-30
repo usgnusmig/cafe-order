@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import ItemList from "./ItemList";
+import MenuList from "./MenuList";
 
-const ITEM_LIST = [
+const MENU_LIST = [
   {
     id: "m1",
     name: "아메리카노",
@@ -29,7 +29,7 @@ const ITEM_LIST = [
   },
 ];
 
-const ItemsStyle = styled.div`
+const MenuStyle = styled.div`
   padding: 1rem;
   max-width: 50rem;
   width: 90%;
@@ -44,17 +44,17 @@ const ItemsStyle = styled.div`
     padding: 0;
   }
 `;
-const Items = () => {
-  const itemList = ITEM_LIST.map((item) => (
-    <ItemList
+const Menu = () => {
+  const menuList = MENU_LIST.map((item) => (
+    <MenuList
       key={item.id}
       id={item.id}
-      name={item.name}
+      menu={item.name}
       description={item.description}
       price={item.price}
     />
   ));
-  return <ItemsStyle>{itemList}</ItemsStyle>;
+  return <MenuStyle>{menuList}</MenuStyle>;
 };
 
-export default Items;
+export default Menu;

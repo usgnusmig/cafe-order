@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 
 import ArticleSummary from "./Article/Article.Summarry";
-import Items from "./Items/Items";
+import Menu from "./Menu/Menu";
 
 const Main = () => {
   return (
     <Fragment>
       <ArticleSummary />
-      <Items />
+      <Menu />
     </Fragment>
   );
 };

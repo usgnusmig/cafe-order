@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import ButtonForm from "./ButtonForm";
 
-const ItemStyle = styled.li`
+const MenuStyle = styled.li`
   display: flex;
   justify-content: space-between;
   margin: 1rem;
@@ -24,20 +25,20 @@ const PriceStyle = styled.div`
   font-size: 1.25;
 `;
 
-const ItemList = ({ name, description, price }) => {
+const MenuList = ({ menu, description, price, id }) => {
   return (
-    <ItemStyle>
+    <MenuStyle>
       <div>
-        <h3>{name}</h3>
+        <h3>{menu}</h3>
         <h5>{description}</h5>
         <PriceStyle>{`${price}₩`}</PriceStyle>
       </div>
 
       <div>
-        <button>버튼</button>
+        <ButtonForm id={id} />
       </div>
-    </ItemStyle>
+    </MenuStyle>
   );
 };
 
-export default ItemList;
+export default MenuList;
