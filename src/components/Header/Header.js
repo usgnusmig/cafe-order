@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 
 import mainImg from "../../assets/06.png";
+import CartButton from "../Cart/CartButton";
 
 const HeaderStyle = styled.header`
   position: fixed;
@@ -36,7 +37,10 @@ const Image = styled.img`
 const Header = (props) => {
   return (
     <Fragment>
-      <HeaderStyle>{<h1>{props.title}</h1> || <h1>CafeName</h1>}</HeaderStyle>
+      <HeaderStyle>
+        {<h1>{props.title}</h1> || <h1>CafeName</h1>}
+        <CartButton />
+      </HeaderStyle>
 
       <MainImage>
         <Image src={mainImg} alt="L'harmonie" />

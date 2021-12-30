@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import MenuList from "./MenuList";
 
 const MENU_LIST = [
@@ -29,6 +29,18 @@ const MENU_LIST = [
   },
 ];
 
+const menuFade = keyframes`
+from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const MenuStyle = styled.div`
   padding: 1rem;
   max-width: 50rem;
@@ -37,6 +49,7 @@ const MenuStyle = styled.div`
   background-color: #fafafa;
   border-radius: 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  animation: ${menuFade} 1s ease-out forwards;
 
   ul {
     list-style: none;
@@ -44,6 +57,7 @@ const MenuStyle = styled.div`
     padding: 0;
   }
 `;
+
 const Menu = () => {
   const menuList = MENU_LIST.map((item) => (
     <MenuList

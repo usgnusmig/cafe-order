@@ -9,7 +9,7 @@ const SummaryStyle = styled.section`
   background-color: #fafafa;
   color: #333333;
   margin: auto;
-  margin-top: -10rem;
+  margin-top: -8rem;
   padding: 1rem;
   border-radius: 15px;
   box-shadow: 0 1px 10px 10px rgba(0, 0, 0, 0.25);
@@ -24,14 +24,10 @@ const SummaryStyle = styled.section`
   }
 `;
 
-const ArticleSummary = () => {
+const Summary = () => {
   return (
     <SummaryStyle>
-      <h2>
-        Cafe Name
-        <br />
-        카페 이름
-      </h2>
+      <h2>Summary</h2>
       <p>
         방문해주셔서 감사합니다.
         <br />
@@ -41,4 +37,4 @@ const ArticleSummary = () => {
   );
 };
 
-export default ArticleSummary;
+export default Summary;
