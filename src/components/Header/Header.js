@@ -39,7 +39,7 @@ const Header = (props) => {
     <Fragment>
       <HeaderStyle>
         {<h1>{props.title}</h1> || <h1>CafeName</h1>}
-        <CartButton />
+        <CartButton onClick={props.onClick} />
       </HeaderStyle>
 
       <MainImage>

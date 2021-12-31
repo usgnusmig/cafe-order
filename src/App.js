@@ -27,15 +27,19 @@ const App = () => {
     setIsLogin(false);
   };
 
-  const cartHandler = () => {
+  const hideCartHandler = () => {
     setIsCart(false);
+  };
+
+  const isCarthandler = () => {
+    setIsCart(true);
   };
 
   return (
     <Fragment>
       <GlobalStyle />
-      {IsCart && <Cart onClose={cartHandler} />}
-      <Header title={"CafeTitle"} />
+      {IsCart && <Cart onClose={hideCartHandler} />}
+      <Header title={"CafeTitle"} onClick={isCarthandler} />
       <Login onLogin={loginHandler} />
       {isLogin && <Main />}
     </Fragment>

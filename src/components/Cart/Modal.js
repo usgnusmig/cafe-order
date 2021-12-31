@@ -25,7 +25,7 @@ const SlideDown = keyframes`
 `;
 
 const ModalOverayStyle = styled.div`
-  posiiton: fixed;
+  position: fixed;
   top: 20vh;
   left: 5%;
   width: 90%;
