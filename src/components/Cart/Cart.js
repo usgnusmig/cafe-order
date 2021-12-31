@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import styled from "styled-components";
 import Modal from "./Modal";
-import CartContext from "./cart-context";
+import CartContext from "../../store/cart-context";
 import CartItem from "./CartItem";
 
 const CartItemStyle = styled.ul`
@@ -68,7 +68,7 @@ const Cart = (props) => {
 
   const cartItems = (
     <CartItemStyle>
-      {cartCtx.items.map((item) => {
+      {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
           name={item.name}
@@ -76,11 +76,11 @@ const Cart = (props) => {
           price={item.price}
           onReomve={itemRemoveHandler.bind(null, item)}
           onAdd={itemAddHandler.bind(null, item)}
-        />;
-      })}
+        />
+      ))}
     </CartItemStyle>
   );
-
+  console.log(cartItems);
   return (
     <Modal onClose={props.onClose}>
       {cartItems}

@@ -29,8 +29,9 @@ const ButtonForm = (props) => {
     event.preventDefault();
 
     const enteredAmount = inputRef.current.value;
+    const enteredAmountNumber = +enteredAmount;
 
-    console.log(enteredAmount);
+    props.onAddToCart(enteredAmountNumber);
   };
 
   // const [isAmount, setIsAmount] = useState[true]

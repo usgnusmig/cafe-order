@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 
 import styled, { keyframes } from "styled-components";
 import Icon from "./Icon";
-import CartContext from "./cart-context";
+import CartContext from "../../store/cart-context";
 
 const BumpKeyfraems = keyframes`
   0% {

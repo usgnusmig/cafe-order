@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import ButtonForm from "./ButtonForm";
+import CartContext from "../../../store/cart-context";
 
 const MenuStyle = styled.li`
   display: flex;
@@ -25,17 +26,28 @@ const PriceStyle = styled.div`
   font-size: 1.25;
 `;
 
-const MenuList = ({ menu, description, price, id }) => {
+const MenuList = (props) => {
+  const cartCtx = useContext(CartContext);
+
+  const addToCartHandler = (amount) => {
+    cartCtx.addItem({
+      id: props.id,
+      name: props.menu,
+      amount: amount,
+      price: props.price,
+    });
+    console.log(cartCtx);
+  };
   return (
     <MenuStyle>
       <div>
-        <h3>{menu}</h3>
-        <h5>{description}</h5>
-        <PriceStyle>{`${price}₩`}</PriceStyle>
+        <h3>{props.menu}</h3>
+        <h5>{props.description}</h5>
+        <PriceStyle>{`${props.price}₩`}</PriceStyle>
       </div>
 
       <div>
-        <ButtonForm id={id} />
+        <ButtonForm id={props.id} onAddToCart={addToCartHandler} />
       </div>
     </MenuStyle>
   );
