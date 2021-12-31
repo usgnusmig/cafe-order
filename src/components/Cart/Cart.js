@@ -80,7 +80,7 @@ const Cart = (props) => {
       ))}
     </CartItemStyle>
   );
-  console.log(cartItems);
+
   return (
     <Modal onClose={props.onClose}>
       {cartItems}

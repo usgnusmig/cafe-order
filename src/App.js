@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const [IsCart, setIsCart] = useState(true);
+  const [IsCart, setIsCart] = useState(false);
   const loginHandler = () => {
     setIsLogin(false);
   };
