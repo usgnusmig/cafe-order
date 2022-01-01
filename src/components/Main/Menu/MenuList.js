@@ -30,13 +30,8 @@ const MenuList = (props) => {
   const cartCtx = useContext(CartContext);
 
   const addToCartHandler = (amount) => {
-    cartCtx.addItem({
-      id: props.id,
-      name: props.menu,
-      amount: amount,
-      price: props.price,
-    });
-    console.log(cartCtx);
+    cartCtx.addItem(props);
+    console.log("props : ", props, "amount :", amount, "cart :", cartCtx);
   };
   return (
     <MenuStyle>
