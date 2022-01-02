@@ -27,6 +27,12 @@ const LoginStyle = styled.form`
     padding: 0.8rem 1rem;
     margin-right: 29.5rem;
     margin-left: 1rem;
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.5;
+      background: var(--button-bg-color, #025ce2);
+    }
   }
 `;
 
@@ -80,45 +86,64 @@ const passwordReducer = (state, action) => {
 const Login = (props) => {
   const emailRef = useRef();
   const passwordRef = useRef();
-
-  let defaultValue = {
-    value: "",
-    isValid: false,
-  };
+  const [loginValid, setLiginValid] = useState(false);
 
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
     value: "",
     isValid: false,
   });
 
-  const [passwordState, dispatchPassword] = useReducer(passwordRef, {
+  const [passwordState, dispatchPassword] = useReducer(passwordReducer, {
     value: "",
     isValid: false,
   });
 
-  const emailChangeHandler = (event) => {
-    let email = emailRef.current.value;
+  const { isValid: emailIsValid } = emailState;
+  const { isValid: passwordIsValid } = passwordState;
 
-    if (email.includes("@") && email.includes(".")) {
+  const emailChangeHandler = (event) => {
+    dispatchEmail({
+      type: "EMAIL",
+      val: event.target.value,
+    });
+    if (emailIsValid && passwordIsValid) {
+      setLiginValid(true);
     }
   };
-  const passwordChangeHandler = (event) => {};
+  const passwordChangeHandler = (event) => {
+    dispatchPassword({
+      type: "PASSWORD",
+      val: event.target.value,
+    });
+    if (emailIsValid && passwordIsValid) {
+      setLiginValid(true);
+    }
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(emailRef.current.value, passwordRef.current.value);
-    // props.onLogin();
+
+    console.log(emailState, passwordState);
+    if (loginValid) {
+      props.onLogin();
+      console.log("logined");
+    }
   };
   return (
     <LoginStyle onSubmit={submitHandler}>
       <InputBox>
         <label>E-Mail</label>
-        <input ref={emailRef} id="email" />
+        <input ref={emailRef} id="email" onChange={emailChangeHandler} />
       </InputBox>
 
       <InputBox>
         <label>Pssword</label>
-        <input ref={passwordRef} id="password" />
+        <input
+          ref={passwordRef}
+          id="password"
+          type="password"
+          onChange={passwordChangeHandler}
+        />
       </InputBox>
 
       <button type="submit">로그인</button>
