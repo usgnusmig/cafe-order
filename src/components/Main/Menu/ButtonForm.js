@@ -31,10 +31,9 @@ const ButtonForm = (props) => {
     const enteredAmount = inputRef.current.value;
     const enteredAmountNumber = +enteredAmount;
 
-    props.onAddToCart(enteredAmountNumber);
+    console.log(enteredAmount, enteredAmountNumber, inputRef);
   };
 
-  // const [isAmount, setIsAmount] = useState[true]
   return (
     <FormStyle onSubmit={submitHandler}>
       <MenuInput

@@ -1,8 +1,7 @@
-import React, { useState, useContext, useEffect } from "react";
+import React from "react";
 
 import styled, { keyframes } from "styled-components";
 import Icon from "./Icon";
-import CartContext from "../../store/cart-context";
 
 const BumpKeyfraems = keyframes`
   0% {
@@ -51,34 +50,11 @@ const BadgeStyle = styled.span`
 `;
 
 const CartButton = (props) => {
-  const [btnHighlighted, setBtnHighlighted] = useState(false);
-  const cartCtx = useContext(CartContext);
-
-  const { items } = cartCtx;
-
-  const numberOfCartItems = items.reduce((curNumber, item) => {
-    return curNumber + item.amount;
-  }, 0);
-
-  useEffect(() => {
-    if (items.length === 0) {
-      return;
-    }
-    setBtnHighlighted(true);
-    const timer = setTimeout(() => {
-      setBtnHighlighted(false);
-    }, 300);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [items]);
-
   return (
-    <ButtonStyle isBump={btnHighlighted} onClick={props.onClick}>
+    <ButtonStyle onClick={props.onClick}>
       <Icon />
       <span>Cart</span>
-      <BadgeStyle>{numberOfCartItems}</BadgeStyle>
+      <BadgeStyle>0</BadgeStyle>
     </ButtonStyle>
   );
 };

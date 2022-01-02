@@ -39,7 +39,7 @@ const Cart = (props) => {
     <Modal onClose={props.onClose}>
       <TotalStyle>
         <span>주문 합계</span>
-        <span>1</span>
+        <span>0</span>
       </TotalStyle>
 
       <ActionStyle>

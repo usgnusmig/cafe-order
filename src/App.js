@@ -21,16 +21,17 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState(true);
-  const [IsCart, setIsCart] = useState(false);
+  // Login Handler
+  const [isLogin, setIsLogin] = useState(false);
   const loginHandler = () => {
-    setIsLogin(false);
+    setIsLogin(true);
   };
 
+  // Cart Modal Handler
+  const [IsCart, setIsCart] = useState(false);
   const hideCartHandler = () => {
     setIsCart(false);
   };
-
   const isCarthandler = () => {
     setIsCart(true);
   };
@@ -38,9 +39,9 @@ const App = () => {
   return (
     <Fragment>
       <GlobalStyle />
-      {IsCart && <Cart onClose={hideCartHandler} />}
+      {isLogin && IsCart && <Cart onClose={hideCartHandler} />}
       <Header title={"CafeTitle"} onClick={isCarthandler} />
-      <Login onLogin={loginHandler} />
+      {!isLogin && <Login onLogin={loginHandler} />}
       {isLogin && <Main />}
     </Fragment>
   );
